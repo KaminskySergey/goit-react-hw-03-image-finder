@@ -33,7 +33,7 @@ export class App extends Component {
   }
 
   addFormState = (data) => {
-    this.setState({name: data, page: 1})
+    this.setState({name: data, page: 1, image: []})
     }
 
   loadMore = async () => {
@@ -46,7 +46,7 @@ export class App extends Component {
     
     const {page} = this.state;
     if ( prevState.name !== this.state.name || prevState.page !== this.state.page){
-      this.setState({isLoader: true, image: []})
+      this.setState({isLoader: true, })
     try {
       
       const {data} = await axios.get(`${BASE_URL}q=${this.state.name}&page=${page}&key=${KEY}&image_type=photo&orientation=horizontal&per_page=12`)
